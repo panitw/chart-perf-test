@@ -47,6 +47,12 @@
                     }
                 }
             }
+            return series;
+        }
+
+        function generateData(year) {
+            var series1 = generateTimeSeries(year);
+            var series2 = generateTimeSeries(year);
             var runningDate = new Date('2010-01-01');
             var labels = [];
             for (var i=0; i<=year; i++) {
@@ -59,7 +65,13 @@
                 datasets: [{
                     backgroundColor: '#5661A3',
 					borderColor: 'rgba(0, 0, 0, 0)',
-                    data: series,
+                    data: series1,
+                    type: 'line'
+                },
+                {
+                    backgroundColor: '#5661A3',
+					borderColor: 'rgba(0, 0, 0, 0)',
+                    data: series2,
                     type: 'line'
                 }]
             };
@@ -67,12 +79,13 @@
 
         function initChart(canvasId) {
             var ctx = document.getElementById(canvasId).getContext("2d");
-            var timeSeries = generateTimeSeries(5);
+            var timeSeries = generateData(5);
             var grd = ctx.createLinearGradient(142.000, 0.000, 158.000, 300.000);
             grd.addColorStop(0.000, 'rgba(86, 97, 163, 1.000)');
             grd.addColorStop(1.000, 'rgba(255, 255, 255, 0.000)');
 
             timeSeries.datasets[0].backgroundColor = grd;
+            timeSeries.datasets[1].backgroundColor = "#B4F4ED";
 
             var myChart = new Chart(ctx, {
                 type: 'line',
