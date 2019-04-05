@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+</head>
+<body>
+    <script>
+
+        var isAndroid = function () {
+            return navigator.userAgent.match('Android');
+        };
+
+        var isIOS = function () {
+            return navigator.userAgent.match('iPad') ||
+                navigator.userAgent.match('iPhone') ||
+                navigator.userAgent.match('iPod');
+        };
+
+        var isMobile = function () {
+            return isAndroid() || isIOS();
+        };
+
+        var open = function (link) {
+            window.location.href = link;
+        };
+
+        var iOSUrl = 'https://itunes.apple.com/us/app/scb-easy/id568388474?mt=8';
+        var androidURL = 'https://play.google.com/store/apps/details?id=com.scb.phone';
+        var webURL = 'https://www.scb.co.th/scbeasy/';
+
+        if (isMobile()) {
+            if (isIOS()) {
+                open(iOSUrl);
+            } else
+            if (isAndroid()) {
+                open(androidURL);
+            } else {
+                open(webURL);
+            }
+        } else {
+            open(webURL);
+        }
+
+    </script>
+</body>
+</html>
