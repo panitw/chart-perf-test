@@ -238,21 +238,22 @@
 
         });
 
+        var iOSUrl = 'itms-apps://itunes.apple.com/app/scb-easy/id568388474?mt=8';
+        var androidURL = 'market://details?id=com.scb.phone';
+        var webURL = 'https://www.scb.co.th/scbeasy/';
+
         var options = {
             fallback: true,
             android: {
                 appId: 'com.scb.phone',
-                fallbackWebUrl: 'https://www.scb.co.th/scbeasy/'
+                fallbackWebUrl: webURL
             },
             iOS: {
                 appName: 'scb-easy',
                 appId: '568388474',
-                fallbackWebUrl: 'https://www.scb.co.th/scbeasy/'
+                fallbackWebUrl: webURL
             }
         };
-
-        var iOSUrl = 'itms-apps://itunes.apple.com/app/scb-easy/id568388474?mt=8';
-        var androidURL = 'market://details?id=com.scb.phone';
 
         deeplink.setup(options);
 
