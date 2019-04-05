@@ -22,7 +22,9 @@
         };
 
         var open = function (link) {
-            window.location.href = link;
+            setTimeout(function () {
+                window.location.href = link;
+            }, 500);
         };
 
         var iOSUrl = 'itms-apps://itunes.apple.com/app/scb-easy/id568388474?mt=8';
